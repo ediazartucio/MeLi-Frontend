@@ -21,14 +21,23 @@ const searchItems = async (req, res) => {
         }
     });
     
-    return res.json(items);
+    return res.json({
+        author: constants.app.author,
+        categories: [],
+        items,
+    });
 };
 
-const getItemById = (req, res) => {
+const getItemById = async (req, res) => {
+    let item = await itemService.getItemById(req.params.id);
 
+    return res.json({
+        author: constants.app.author,
+        item,
+    });
 };
 
 module.exports = {
     searchItems,
-    getItemById
+    getItemById,
 };

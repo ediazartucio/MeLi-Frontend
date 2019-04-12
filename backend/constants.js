@@ -8,5 +8,9 @@ exports.constants = {
         frontendPort: process.env.APP_FRONTEND_PORT || 3000,
         port: process.env.PORT || 8000,
         searchLimit: process.env.SERVER_RESULT_LIMIT,
+        author: {
+            name: 'Estefania',
+            lastName: 'Diaz Artucio',
+        },
     },
 };
