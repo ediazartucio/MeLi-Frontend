@@ -3,7 +3,7 @@ const { constants } = require('../constants.js');
 
 const searchItems = async (req, res) => {
     let params = {
-        q: req.query.q,
+        q: req.query.search,
         limit: constants.app.searchLimit,
     };
 
