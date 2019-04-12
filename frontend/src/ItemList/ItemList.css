@@ -1,0 +1,13 @@
+.item-list-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding: 0 10%;
+    margin-top: 40px;
+}
+
+.item-list-row {
+    display: inline-grid;
+    grid-template-columns: [first-col] 25% [middle-col] auto [last-col] 25%;
+    background-color: #fff;
+}
