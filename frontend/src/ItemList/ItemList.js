@@ -46,7 +46,7 @@ class ItemList extends React.Component {
     render() {
         return(
             <React.Fragment>
-                <Breadcrumb elements={this.state.categories} cssCustomClass='item-list-category-breadcrumb' />
+                <Breadcrumb elements={this.state.categories} />
                 <div className='item-list-container'>
                     {this.renderItems()}
                 </div>

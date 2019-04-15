@@ -11,7 +11,7 @@ const Breadcrumb = props => {
     }
 
     return(
-        <div className={`breadcrumb-container ${props.cssCustomClass}`}>
+        <div className='breadcrumb-container'>
             {props.elements ? renderElements() : null}
         </div>
     );

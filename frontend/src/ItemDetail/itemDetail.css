@@ -4,7 +4,7 @@
     grid-template-columns: [first-col] 15% [left-main-col] 50% [right-main-col] 20% [last-col] 15%;
     min-height: 100vh;
     /*padding: 0 10%;*/
-    margin-top: 40px;
+    margin-top: 16px;
 }
 
 .item-detail-container .detail-left-column {
