@@ -1,13 +1,50 @@
 .item-list-container {
-    display: flex;
-    flex-direction: column;
+    width: 100%;
+    display: grid;
+    grid-template-columns: [first-col] 15% [main-col] auto [last-col] 15%;
     min-height: 100vh;
-    padding: 0 10%;
     margin-top: 40px;
+    margin-bottom: 40px;
 }
 
 .item-list-row {
+    grid-column-start: main-col;
     display: inline-grid;
-    grid-template-columns: [first-col] 25% [middle-col] auto [last-col] 25%;
+    grid-template-columns: [first-col] 180px [middle-col] auto [last-col] 20%;
     background-color: #fff;
+    padding: 16px;
+    border-bottom: 1.5px solid #eeeeee;
+}
+
+.item-list-row .item-info-first-col {
+    grid-column-start: first-col;
+}
+
+.item-info-first-col img {
+    width: 100%;
+    border-radius: 4px;
+}
+
+.item-info-first-col img, .item-list-row .item-info-second-col .item-title {
+    cursor: pointer;
+}
+
+.item-list-row .item-info-second-col {
+    grid-column-start: middle-col;
+    display: flex;
+    flex-direction: column;
+    padding-left: 16px;
+    font-size: 18px;
+}
+
+.item-list-row .item-info-second-col .item-price {
+    margin-bottom: 32px;
+    font-size: 24px;
+    margin-right: 10px;
+}
+
+.item-list-row .item-info-third-col {
+    grid-column-start: last-col;
+    font-size: 12px;
+    padding-top: 32px;
 }
