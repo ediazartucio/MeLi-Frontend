@@ -9,12 +9,12 @@ const priceFormatter = item => {
         currency: currencyEnum[item.currency_id],
         intPrice: parsedPrice,
         decimals,
-    }
-}
+    };
+};
 
 const statusMapper = status => {
     return statusEnum[status];
-}
+};
 
 module.exports = {
     priceFormatter,

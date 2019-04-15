@@ -12,7 +12,7 @@ const getItemById = async id => {
     ]);
 
     const picture = itemInfo.data.pictures.length > 1 ? itemInfo.data.pictures[0].url : itemInfo.thumbnail;
-    
+
     let item = {
         id: id,
         title: itemInfo.data.title,
@@ -24,7 +24,7 @@ const getItemById = async id => {
         description: itemDescription.data.plain_text,
         idCategory: itemInfo.data.category_id,
         currency_id: itemInfo.data.currency_id,
-    }
+    };
     return item;
 };
 

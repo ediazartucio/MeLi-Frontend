@@ -1,4 +1,4 @@
 module.exports = Object.freeze({
     used: 'Usado',
-    new: 'Nuevo'
+    new: 'Nuevo',
 });
