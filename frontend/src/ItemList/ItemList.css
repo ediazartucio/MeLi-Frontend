@@ -1,10 +1,14 @@
 .item-list-container {
     width: 100%;
     display: grid;
-    grid-template-columns: [first-col] 15% [main-col] auto [last-col] 15%;
+    grid-template-columns: [left-margin-col] 15% [main-col] auto [right-margin-col] 15%;
     min-height: 100vh;
-    margin-top: 40px;
+    margin-top: 16px;
     margin-bottom: 40px;
+}
+
+.item-list-category-breadcrumb {
+    margin-left: 15%;
 }
 
 .item-list-row {
@@ -37,8 +41,11 @@
     font-size: 18px;
 }
 
+.item-list-row .item-info-second-col .item-title {
+    margin-top: 32px;
+}
+
 .item-list-row .item-info-second-col .item-price {
-    margin-bottom: 32px;
     font-size: 24px;
     margin-right: 10px;
 }

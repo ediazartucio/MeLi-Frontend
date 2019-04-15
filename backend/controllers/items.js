@@ -8,7 +8,9 @@ const searchItems = async (req, res) => {
     };
 
     let { data } = await itemService.searchItems(params);
-    
+
+    let topCategory = data.filters.find(f => f.id = 'category');
+
     const items = data.results.map(item => {
         return {
             id: item.id,
@@ -23,17 +25,21 @@ const searchItems = async (req, res) => {
     
     return res.json({
         author: constants.app.author,
-        categories: [],
+        categories: topCategory.values[0].path_from_root,
         items,
     });
 };
 
 const getItemById = async (req, res) => {
     let item = await itemService.getItemById(req.params.id);
+    let category = await itemService.getCategoryById(item.idCategory);
 
     return res.json({
         author: constants.app.author,
-        item,
+        item: {
+            ...item,
+            categories: category.path_from_root,
+        },
     });
 };
 

@@ -1,15 +1,17 @@
 import React from 'react';
 import {withRouter} from 'react-router-dom';
-import ItemRow from './ItemRow.js';
-import './ItemList.css';
-import api from '../common/Services/api.js';
 import queryParser from 'query-string';
+import api from '../common/Services/api.js';
+import ItemRow from './ItemRow.js';
+import Breadcrumb from '../common/Components/Breadcrumb.js';
+import './ItemList.css';
 
 class ItemList extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             items: [],
+            categories: [],
         };
         this.renderItems = this.renderItems.bind(this);
         this.viewDetail = this.viewDetail.bind(this);
@@ -18,7 +20,10 @@ class ItemList extends React.Component {
     async componentDidMount() {
         let parsedQuery = queryParser.parse(this.props.location.search);
         let searchResult = await api.getSearchResults(parsedQuery);
-        this.setState({ items: searchResult.items });
+        this.setState({ 
+            items: searchResult.items,
+            categories: searchResult.categories,
+        });
     };
 
     viewDetail(itemId) {
@@ -31,16 +36,21 @@ class ItemList extends React.Component {
     renderItems() {
         return this.state.items.map(item => {
             return(
-                <ItemRow item={item} onClick={this.viewDetail} />
+                <React.Fragment key={item.id}>
+                    <ItemRow item={item} onClick={this.viewDetail} />
+                </React.Fragment>
             );
         });
     }
 
     render() {
         return(
-            <div className='item-list-container'>
-                {this.renderItems()}
-            </div>
+            <React.Fragment>
+                <Breadcrumb elements={this.state.categories} cssCustomClass='item-list-category-breadcrumb' />
+                <div className='item-list-container'>
+                    {this.renderItems()}
+                </div>
+            </React.Fragment>
         );
     };
 }

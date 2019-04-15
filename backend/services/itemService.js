@@ -22,9 +22,14 @@ const getItemById = async id => {
         free_shipping: itemInfo.data.shipping.free_shipping,
         sold_quantity: itemInfo.data.sold_quantity,
         description: itemDescription.data.plain_text,
+        idCategory: itemInfo.data.category_id,
     }
-
     return item;
+};
+
+const getCategoryById = async idCategory => {
+    let { data } = await axios.get(`https://api.mercadolibre.com/categories/${idCategory}`);
+    return data;
 };
 
 module.exports = {
@@ -32,4 +37,6 @@ module.exports = {
     searchItems,
 
     getItemById,
+
+    getCategoryById,
 };

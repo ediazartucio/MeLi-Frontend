@@ -1,0 +1,9 @@
+.breadcrumb-container {
+    margin-top: 16px;
+    font-size: 14px;
+    color: #666;
+}
+
+.breadcrumb-container span:last-child{
+    font-weight: 550;
+}
