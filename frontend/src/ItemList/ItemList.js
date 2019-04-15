@@ -1,4 +1,5 @@
 import React from 'react';
+import {withRouter} from 'react-router-dom';
 import ItemRow from './ItemRow.js';
 import './ItemList.css';
 import api from '../common/Services/api.js';
@@ -11,6 +12,7 @@ class ItemList extends React.Component {
             items: [],
         };
         this.renderItems = this.renderItems.bind(this);
+        this.viewDetail = this.viewDetail.bind(this);
     }
 
     async componentDidMount() {
@@ -19,10 +21,17 @@ class ItemList extends React.Component {
         this.setState({ items: searchResult.items });
     };
 
+    viewDetail(itemId) {
+        this.props.history.push({
+            pathname: `/items/${itemId}`,
+            state: { itemId },
+        });
+    }
+
     renderItems() {
         return this.state.items.map(item => {
             return(
-                <ItemRow item={item} />
+                <ItemRow item={item} onClick={this.viewDetail} />
             );
         });
     }
@@ -36,4 +45,4 @@ class ItemList extends React.Component {
     };
 }
 
-export default ItemList;
+export default withRouter(ItemList);

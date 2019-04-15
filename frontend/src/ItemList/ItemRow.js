@@ -1,8 +1,8 @@
 import React from 'react';
 
-const ItemRow = ({item}) => {
+const ItemRow = ({item, onClick}) => {
     return(
-        <div className='item-list-row' key={item.id} >
+        <div className='item-list-row' key={item.id} onClick={() => onClick(item.id)} >
             <div className='item-info-first-col'>
                 <img src={item.picture} alt='itemImg' />
             </div>
