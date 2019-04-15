@@ -26,7 +26,14 @@ class ItemDetail extends React.Component {
     };
 
     render() {
-        let statusText = this.state.itemInfo.condition + ' - ' + this.state.itemInfo.sold_quantity;
+        if (!this.state.itemInfo.price || !this.state.itemInfo.title) {
+            return null;
+        };
+
+        let statusText = this.state.itemInfo.condition + ' - ' + this.state.itemInfo.sold_quantity + ' vendidos';
+        let priceText = `${this.state.itemInfo.price.currency} ${this.state.itemInfo.price.intPrice}`;
+        let decimals = this.state.itemInfo.price.decimals ? this.state.itemInfo.price.decimals.split('.')[1] : '00';
+
         return (
             <React.Fragment>
                 <Breadcrumb elements={this.state.itemInfo.categories} />
@@ -43,7 +50,10 @@ class ItemDetail extends React.Component {
                             {statusText}
                         </div>
                         <span className='item-title'>{this.state.itemInfo.title}</span>
-                        <span className='item-price'>{this.state.itemInfo.price}</span>
+                        <div className='item-price'>
+                            <span>{priceText}</span>
+                            <span className='item-price-decimals'>{decimals}</span>
+                        </div>
                         <button className='item-buy-button'>Comprar</button>
                     </div>
                 </div>

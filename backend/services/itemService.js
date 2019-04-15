@@ -23,6 +23,7 @@ const getItemById = async id => {
         sold_quantity: itemInfo.data.sold_quantity,
         description: itemDescription.data.plain_text,
         idCategory: itemInfo.data.category_id,
+        currency_id: itemInfo.data.currency_id,
     }
     return item;
 };
@@ -33,7 +34,7 @@ const getCategoryById = async idCategory => {
 };
 
 module.exports = {
-    // Receives a query and calls the MeLi API with it returning a
+    // Receives a query and calls the MeLi API with it returning a list of matching items
     searchItems,
 
     getItemById,

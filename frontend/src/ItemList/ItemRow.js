@@ -9,7 +9,7 @@ const ItemRow = ({item, onClick}) => {
             </div>
             <div className='item-info-second-col'>
                 <div>
-                    <span className='item-price'>{item.price}</span>
+                    <span className='item-price'>{item.price.currency} {item.price.intPrice}</span>
                     {item.free_shipping ? <img src={ShippingIcon} alt='icon-shipping' /> : null}
                 </div>
                 <span className='item-title' onClick={() => onClick(item.id)} >{item.title}</span>
